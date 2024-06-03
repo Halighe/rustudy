@@ -15,7 +15,7 @@ class AfishaController extends RestController
      */
     public function index(Request $request){
 
-        $afishas = Afisha::all();
+        $afishas = Afisha::where('active', '1')->get();
         //where('active', '=', '1');
         return $this->sendResponse(AfishaResource::collection($afishas));
     }
